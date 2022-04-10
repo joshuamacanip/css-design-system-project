@@ -4,11 +4,8 @@
 
 /* font family */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700;800;900&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500;600;700;800;900&display=swap");
 
 /* -------------------------------- */
@@ -17,15 +14,24 @@
 
 /* root */
 :root {
-  /* spacing */
+  /* spacing variable */
   --gap: 1rem;
 
-  /* color */
+  /* fibonnacci sequence spacing */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.25rem;
+  --space-xxl: 5.25rem;
+
+  /* color variable */
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
 
-  /* font size */
+  /* font size variable */
   --fs-900: 9.375rem;
   --fs-800: 6.25rem;
   --fs-700: 3.5rem;
@@ -35,7 +41,17 @@
   --fs-300: 1rem;
   --fs-200: 0.075rem;
 
-  /* font families */
+  /* font weight variable */
+  --fw-900: 900;
+  --fw-800: 800;
+  --fw-700: 700;
+  --fw-600: 600;
+  --fw-500: 500;
+  --fw-400: 400;
+  --fw-300: 300;
+  --fw-200: 200;
+
+  /* font families variable */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
@@ -66,6 +82,7 @@ picture {
   margin: 0;
 }
 
+/* default font weight */
 h1,
 h2,
 h3,
@@ -78,7 +95,10 @@ p {
 
 /* set up the body */
 body {
+  /* default line height */
   line-height: 1.5;
+
+  /* default body height */
   min-height: 100vh;
 
   /* color property */
@@ -121,7 +141,7 @@ select {
 /* Utility Classes                  */
 /* -------------------------------- */
 
-/* General Utiltiy */
+/* Layout utiltiy */
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
@@ -132,12 +152,18 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+  outline: 1px solid red;
+}
+
 .container {
   padding: 0 2rem;
   max-width: 60rem;
   margin: auto;
 }
 
+/* screen reader utiltiy */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -152,18 +178,24 @@ select {
 
 /* Color Utility */
 
-/* background */
+/* background color */
+
+/* dominant color */
 .bg-dark {
   background-color: hsl(var(--clr-dark));
 }
 
+/* complemantary color */
 .bg-accent {
   background-color: hsl(var(--clr-light));
 }
 
+/* accent color */
 .bg-white {
   background-color: hsl(var(--clr-white));
 }
+
+/* text color */
 
 /* text */
 .text-dark {
@@ -244,6 +276,7 @@ select {
   font-size: var(--fs-200);
 }
 
+/* font line height */
 .fs-900,
 .fs-800,
 .fs-700,
@@ -251,7 +284,69 @@ select {
   line-height: 1.1;
 }
 
-/* number title */
+/* Spacing Utility */
+
+/* All side */
+.padding-xxs {
+  padding: var(--space-xxs);
+}
+
+.padding-xs {
+  padding: var(--space-xs);
+}
+
+.padding-sm {
+  padding: var(--space-sm);
+}
+
+.padding-md {
+  padding: var(--space-md);
+}
+
+.padding-lg {
+  padding: var(--space-lg);
+}
+
+.padding-xl {
+  padding: var(--space-xl);
+}
+
+.padding-xxl {
+  padding: var(--space-xxl);
+}
+
+/* Vertical padding */
+.padding-y-xxs {
+  padding: var(--space-xxs) 0;
+}
+
+.padding-y-xs {
+  padding: var(--space-xs) 0;
+}
+
+.padding-y-sm {
+  padding: var(--space-sm) 0;
+}
+
+.padding-y-md {
+  padding: var(--space-md) 0;
+}
+
+.padding-y-lg {
+  padding: var(--space-lg) 0;
+}
+
+.padding-y-xl {
+  padding: var(--space-xl) 0;
+}
+
+.padding-y-xxl {
+  padding: var(--space-xxl) 0;
+}
+
+/* -------------------------------- */
+/* COMPONENTS                       */
+/* -------------------------------- */
 
 .numbered-title {
   font-family: var(--ff-sans-cond);
@@ -266,4 +361,30 @@ select {
   color: hsl(var(--clr-white) / 0.25);
 }
 
-/* Spacing Utility */
+.large-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-decoration: none;
+}
+
+.large-button:after {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  background-color: hsl(var(--clr-white) / 0.15);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+  transform: scale(1.5);
+  opacity: 1;
+}
