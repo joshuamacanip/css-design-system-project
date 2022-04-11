@@ -168,23 +168,144 @@
         <h2 class="numbered-title"><span>03</span> Interactive</h2>
 
         <!-- navigation -->
+        <div class="padding-y-xxl">
+          <nav>
+            <ul class="primary-navigation underline-indicators flex">
+              <li class="active">
+                <a href="#" class="uppercase text-white letter-spacing-2">
+                  <span>01</span> Active</a
+                >
+              </li>
+              <li>
+                <a href="#" class="uppercase text-white letter-spacing-2">
+                  <span>02</span>Hoverd</a
+                >
+              </li>
+              <li>
+                <a href="#" class="uppercase text-white letter-spacing-2"
+                  ><span>03</span>Idle</a
+                >
+              </li>
+            </ul>
+          </nav>
 
-        <div class="flex">
-          <div style="margin-top: 5rem">
+          <p class="text-accent ff-san-cond fs-300 padding-y-sm">
+            Navigation bar component
+          </p>
+        </div>
+
+        <div class="flex" style="--gap: 2rem">
+          <div style="margin-top: 5rem; flex-basis: 100%">
             <!-- explore button -->
             <a
               href="#"
               class="large-button uppercase ff-serif text-dark bg-white fs-600"
               >Explore</a
             >
+
+            <p class="text-accent ff-san-cond fs-300 padding-y-sm text-center">
+              Large button component
+            </p>
           </div>
 
-          <div style="margin-bottom: 50vh">
+          <div
+            class="flow"
+            style="margin-bottom: 50vh; flex-basis: 100%; --flow-space: 4rem"
+          >
             <!-- tabs -->
+            <div class="underline-indicators tab-list flex">
+              <button
+                aria-selected="true"
+                class="uppercase ff-sans-cond text-white bg-dark letter-spacing-2"
+              >
+                Moon
+              </button>
+              <button
+                aria-selected="false"
+                class="uppercase ff-sans-cond text-white bg-dark letter-spacing-2"
+              >
+                Mars
+              </button>
+              <button
+                aria-selected="false"
+                class="uppercase ff-sans-cond text-white bg-dark letter-spacing-2"
+              >
+                Europa
+              </button>
+            </div>
+
+            <p class="text-accent ff-san-cond fs-300">Tab Component</p>
 
             <!-- dots -->
+            <div class="dot-indicators flex">
+              <button aria-selected="true">
+                <span class="sr-only">Slide title</span>
+              </button>
+              <button aria-selected="false">
+                <span class="sr-only">Slide title</span>
+              </button>
+              <button aria-selected="false">
+                <span class="sr-only">Slide title</span>
+              </button>
+            </div>
+
+            <p class="text-accent ff-san-cond fs-300">
+              Dot indicator component
+            </p>
 
             <!-- numbers -->
+            <div class="number-indicators">
+              <span aria-selected="true">1</span>
+              <span aria-selected="false">2</span>
+              <span aria-selected="false">3</span>
+            </div>
+
+            <p class="text-accent ff-san-cond fs-300">
+              Number indicator component
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="numbered-title padding-y-xl"><span>04</span> Grid Layout</h2>
+
+        <div class="grid responsive-column">
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 1
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 2
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 3
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 4
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 5
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 6
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 7
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 8
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 9
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 10
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 11
+          </div>
+          <div class="text-dark bg-accent padding-y-xl center-child-element">
+            Column 12
           </div>
         </div>
       </section>

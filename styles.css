@@ -154,7 +154,6 @@ select {
 
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
-  outline: 1px solid red;
 }
 
 .container {
@@ -163,7 +162,35 @@ select {
   margin: auto;
 }
 
+.center-child-element {
+  display: grid;
+  place-items: center;
+}
+
+/* column breakpoint */
+
+/* 0-599px device */
+.responsive-column {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 600-904px device */
+@media (min-width: 600px) {
+  .responsive-column {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 906-1239px device */
+@media (min-width: 906px) {
+  .responsive-column {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
 /* screen reader utiltiy */
+
+/* visually hide element */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -243,6 +270,11 @@ select {
   text-transform: uppercase;
 }
 
+/* text center */
+.text-center {
+  text-align: center;
+}
+
 /* font size */
 .fs-900 {
   font-size: var(--fs-900);
@@ -286,7 +318,7 @@ select {
 
 /* Spacing Utility */
 
-/* All side */
+/* Padding all side */
 .padding-xxs {
   padding: var(--space-xxs);
 }
@@ -348,6 +380,7 @@ select {
 /* COMPONENTS                       */
 /* -------------------------------- */
 
+/* numbered title component */
 .numbered-title {
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-500);
@@ -361,6 +394,7 @@ select {
   color: hsl(var(--clr-white) / 0.25);
 }
 
+/* large button component */
 .large-button {
   position: relative;
   display: grid;
@@ -387,4 +421,92 @@ select {
 .large-button:focus::after {
   transform: scale(1.5);
   opacity: 1;
+}
+
+/* navbar component */
+.primary-navigation {
+  --gap: 8rem;
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > span {
+  font-weight: var(--fw-700);
+  margin-right: 0.5em;
+}
+
+/* underline component */
+.underline-indicators > * {
+  cursor: pointer;
+  padding: var(--underline-gap, 1rem) 0;
+  border: 0;
+  border-bottom: 0.2rem solid hsl(var(--clr-light) / 0);
+  transition: border-color 250ms ease-in-out;
+}
+
+.underline-indicators > .active {
+  border-color: hsl(var(--clr-white) / 1);
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > [aria-selected="true"] {
+  color: hsl(var(--clr-white) / 1);
+  border-color: hsl(var(--clr-white) / 1);
+}
+
+/* tab list component */
+.tab-list {
+  --gap: 3em;
+}
+
+.dot-indicators > * {
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  background-color: hsl(var(--clr-white) / 0.25);
+  transition: background-color 400ms ease-in-out;
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+  background-color: hsl(var(--clr-white) / 0.5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+  background-color: hsl(var(--clr-white) / 1);
+}
+
+/* numbers indicator component */
+.number-indicators > * {
+  /* center inner element */
+  display: grid;
+  place-items: center;
+
+  font-family: var(--ff-serif);
+  width: 5rem;
+  height: 5rem;
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-white));
+  margin-bottom: 0.5rem;
+  border: 0.02rem solid hsl(var(--clr-white));
+  border-radius: 50%;
+}
+
+.number-indicators > span {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-600);
+  background-color: hsl(var(--clr-dark) / 0.5);
+}
+
+.number-indicators > [aria-selected="true"] {
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
 }
